@@ -1,5 +1,5 @@
 {
-  "name": "meanStack",
+  "name": "ExampleMEANApp",
   "version": "1.0.0",
   "description": "sample mean stack",
   "main": "server.js",
@@ -53,18 +53,10 @@
   "devDependencies": {
     "mocha": "^1.21.5"
   },
-  "scripts": {
-    "test": "mocha",
-    "start": "node server.js"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tomtclai/facebookhackathon2015.git"
+    "url": "https://github.com/Distelli/Example-MEAN-App.git"
   },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tomtclai/facebookhackathon2015/issues"
-  },
-  "homepage": "https://github.com/tomtclai/facebookhackathon2015"
+  "author": "Tanner Phan",
+  "homepage": "https://github.com/Distelli/Example-MEAN-App"
 }
