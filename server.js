@@ -19,11 +19,11 @@ app.use(morgan('dev')); //HTTP logger
 //==================================--APP--====================================
 var superSecret = config.secret;
 // APP CONFIGURATION------------------------------------------
-//use body parser so we can grab information from POST
+// use body parser to grab information from POST
 app.use(bodyParser.urlencoded({ extended:true}));
 app.use(bodyParser.json());
 
-//configure app to handle CORS requests
+// configure app to handle CORS requests
 app.use(function(req,res,next){
 	res.setHeader('Access-Control-Allow-Orgin','*');
 	res.setHeader('Access-Control-Allow-Method','GET,POST');
@@ -39,8 +39,8 @@ db.once('open', function (callback) {
   console.log('MONGO: successfully connected to db');
 });
 
-//set static files location
-//used for requests that frontend will make
+// set static files location
+// used for requests that frontend will make
 app.use(express.static(__dirname + '/public'));
 
 //=========================--ROUTES/API--====================================
@@ -49,12 +49,12 @@ var apiRoutes = require(__dirname + '/server/routes/api')(app,express);
 //REGISTER ROUTES----------------------------------------
 app.use('/api',apiRoutes); //all /api routes
 
-//MAIN CATCHALL ROUTE-----------------------------------------------------
-//SEND USERS TO FRONTEND -------------------------------------------------
-//has to be registered after API ROUTES
+// MAIN CATCHALL ROUTE-----------------------------------------------------
+// SEND USERS TO FRONTEND -------------------------------------------------
+// has to be registered after API ROUTES
 
 // set up our one route to the index.html file
-//route for the home page
+// route for the home page
 app.get('*', function(req, res) {
     res.sendFile(path.join(__dirname + '/public/app/views/index.html'));
 });
@@ -92,7 +92,7 @@ app.post('/authenticate',function(req, res){
 					expiresIn: 86400 //  (24hrs)
 					// expires in 3600 * 24 = c (24 hours)
 				});
-				//return the information including token as JSON
+				//return json object, information including token as JSON
 				res.json({
 					name: user.name,
 					success: true,
@@ -103,6 +103,7 @@ app.post('/authenticate',function(req, res){
 		}
 	});
 });
+
 //=================================  /register  =============================
 app.route('/register')
 	//create a user (accessed at POST http://localhost:8080/api/register)
@@ -132,7 +133,3 @@ app.route('/register')
 //=========================--START THE SERVER---=========================
 app.listen(config.port);
 console.log("Magic happens on port" + config.port);
-
-
-
-
