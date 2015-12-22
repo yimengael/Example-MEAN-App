@@ -1,7 +1,7 @@
 //server.js
+
 //==================================--BASE SETUP--============================
 //LOAD PACKAGES-------------------------------
-//var jwt = require('jsonwebtoken');//TOKEN Package
 var express = require ('express'); //EXPRESS Package
 var app = express();	//define our app using express
 var bodyParser = require('body-parser');// get body-parser
@@ -11,8 +11,7 @@ var config = require('./config'); //get config file
 var path = require('path');
 var jwt = require('jsonwebtoken');
 var User = require(__dirname + '/server//models/user.js');
-//var port = config.port; //PORT
-//var mongodb = require('mongodb'); //for working with database
+
 
 app.use(morgan('dev')); //HTTP logger
 
