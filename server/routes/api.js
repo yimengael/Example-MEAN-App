@@ -13,7 +13,7 @@ var apiRouter = express.Router();
 
 //===============================  Token Middleware  =========================
 // For /users request
-// Checks for token
+// Checks for token for /api routes
 apiRouter.use("/",function(req,res,next){
 	//check header or url parameters or post parameters for token
 	var token = req.body.token || req.param('token') ||req.headers['x-access-token'];
@@ -54,7 +54,7 @@ apiRouter.route('/users')
 					});
 		});
 
-//===============================  /me  ============================
+//=====================================  /me  ==================================
 apiRouter.route('/me')
 		.get(function(req,res){
 		res.send(req.decoded);
