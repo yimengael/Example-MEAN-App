@@ -32,7 +32,7 @@ app.use(function(req,res,next){
 });
 
 //==================================--DB--====================================
-mongoose.connect('mongodb://localhost/local');
+mongoose.connect('mongodb://app:myPassword@localhost/appDB');
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
